@@ -92,7 +92,6 @@ class SearchInput extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-
                 <Autosuggest
                     suggestions={suggestions}
                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -100,7 +99,6 @@ class SearchInput extends React.Component {
                     getSuggestionValue={getSuggestionValue}
                     renderSuggestion={renderSuggestion}
                     inputProps={inputProps}
-
                 />
 
                 {/* <input type="submit"  className="searchBtn" / > */}

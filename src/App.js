@@ -40,9 +40,7 @@ function App() {
     const [loading, setLoading] = useState(false)
     const [searchNotFound, setNotFound] = useState(false)
     useEffect(() => {
-
         // get user input
-
         // fetch data
         const getData = async () => {
 
@@ -52,9 +50,7 @@ function App() {
                 setLoading(true)
                 setFood(null)
                 setNotFound(false)
-
-                // const req = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?api_keys=${process.env.REACT_APP_Food_API}&query=${fooditemToSearch}`)
-                // const res = await req.json()
+ 
                 const req = await fetch(`https://henok-food-web.herokuapp.com/search/`, {
                     method: "POST",
                     mode: 'cors', // no-cors, *cors, same-origin
@@ -67,37 +63,19 @@ function App() {
                 })
 
                 const res = await req.json()
-
-
                 // Set Data
-
                 setFood(res.foods[0])
-
-                setTimeout(() => {
-                    setLoading(false)
-
-                }, 1000);
-                // console.log(fooditemToSearch);
-
-
+                setLoading(false)
             } catch (error) {
                 setNotFound(true)
             }
         }
-
         // clear user input
-
         getData()
-
     }, [fooditemToSearch])
-
-    console.log(fooditemToSearch);
 
     return (
         <>
-
-
-
             <SearchInput
                 getUserInput={setSearch}
             />
@@ -105,16 +83,13 @@ function App() {
                 <Title
                     title={fooditemToSearch}
                 />
-
             }
             <CardContainer
                 selectedFood={selectedFood}
                 loading={loading}
             />
-
         </>
     )
-
 
 }
 
