@@ -21,7 +21,7 @@ function CardContainer(props) {
                     <div className="notFound">
                         <p>We were unable to find your item, please try another one.</p>
                         <br />
-                        <img src={notFound} width="100%" />
+                        <img src={notFound} width="100%" alt="Item not found error image" />
                     </div>
                     : props.loading === true ?
                         <SkeletonTheme color="#DDDDDD" highlightColor="#dadada">
