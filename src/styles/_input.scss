@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "neue-haas-unica";
+    src: url("../assets/fonts/NHaasGroteskTXPro-55Rg.ttf");
+    src: url("../assets/fonts/NHaasGroteskTXPro-65Md.ttf");
+    src: url("../assets/fonts/NHaasGroteskTXPro-75Bd.ttf") format("ttf");
+}
+$Primary-color: #dadada;
+
+// btn color
+$Btn_border-color: #d2d2d2;
+
+$font-main: "neue-haas-unica";
+
+// mobile first
+
+form {
+    grid-area: nav;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    background-color: $Primary-color;
+    // height: 30%;
+    height: 80px;
+    margin-top: 10vh;
+    overflow: hidden;
+    font-size: 1.7em;
+
+    box-shadow: -3.5px -2px 6px -2px rgba(0, 0, 0, 0.25), 1px 1px 3px rgba(170, 186, 181, 0.25);
+    border-radius: 22px;
+
+    .react-autosuggest__container {
+        height: 100%;
+        width: 100%;
+        .react-autosuggest__input {
+            outline: none;
+            border: none;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            font-size: 1em;
+        }
+
+        .react-autosuggest__input--focused {
+            outline: none;
+        }
+
+        .react-autosuggest__input--open {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .react-autosuggest__suggestions-container {
+            display: none;
+        }
+
+        .react-autosuggest__suggestions-container--open {
+            display: block;
+            position: absolute;
+            top: 20vh;
+            width: 60%;
+            font-weight: 300;
+            border-radius: 6px;
+            border: none;
+            z-index: 2;
+            background: #dadada;
+            // box-shadow: -3.5px -2px 6px -2px rgba(0, 0, 0, 0.25), 2px 3px 6px rgba(242, 242, 242, 0.25);
+        }
+
+        .react-autosuggest__suggestions-list {
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .react-autosuggest__suggestion {
+            margin-left: 24%;
+            width: 50%;
+            cursor: pointer;
+            padding: 10px 20px;
+            color: #3e4643;
+        }
+
+        .react-autosuggest__suggestion--highlighted {
+            // text-decoration: underline;
+            // border-bottom: 2px solid currentColor;
+            box-shadow: inset 1px 1px 4px rgba(249, 249, 249, 0.5), inset -2px -3px 6px -3px rgba(67, 67, 67, 0.25);
+            border-radius: 22px;
+            text-align: center;
+            // border-left: none;
+            border: none;
+            // border-right: none;;
+            background-color: $Primary-color;
+        }
+
+        .react-autosuggest__suggestion-match {
+            color: rgb(27, 56, 55);
+            text-decoration: underline;
+        }
+    }
+    .searchBtn {
+        max-width: 66px;
+        border-radius: 50px;
+        padding: 8px;
+        margin: 5px;
+        cursor: pointer;
+        // z-index: 1;
+        outline: none;
+
+        background: $Primary-color;
+        border: 1px solid #d2d2d2;
+        box-sizing: border-box;
+        box-shadow: -2px -1px 3px rgba(0, 0, 0, 0.25), 3px 2px 2px rgba(242, 242, 242, 0.25);
+
+        .fas {
+            color: #b6b6b6;
+            font-size: 1.5rem;
+            padding: 5px;
+            background-color: inherit;
+        }
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+    .react-autosuggest__suggestions-container--open {
+        width: 88%;
+        background: red;
+    }
+}

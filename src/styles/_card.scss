@@ -1,0 +1,58 @@
+.card_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // max-width: 200px;
+    // max-height: 200px;
+
+    width: 287px;
+    height: 180px;
+    max-height: 215px;
+    margin: 5px;
+    padding: 10px;
+
+    background: #dadada;
+    border: 5px solid #dfdfdf;
+    box-shadow: 0px 0px 9px rgba(165, 165, 165, 0.25);
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.card_container {
+    .css-1vmnjpn-skeletonStyles-Skeleton {
+        border: 10px solid black;
+        box-shadow: -3.5px -2px 6px -2px rgba(0, 0, 0, 0.25), 2px 3px 6px rgba(242, 242, 242, 0.25);
+    }
+    .card_vitaminEle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        font-size: 1.4em;
+    }
+    .card_Ele_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: auto;
+        height: 100%;
+        font-size: 1.7em;
+        
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 84px;
+            margin: 5px;
+
+            background: #dadada;
+            border: 3px solid #dfdfdf;
+            box-shadow: 0px 0px 21px -12px rgba(62, 70, 67, 0.39);
+            border-radius: 16px;
+            // width: 50%;
+        }
+    }
+}

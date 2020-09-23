@@ -1,26 +1,121 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import CardContainer from './assets/components/CardContainer'
+import SearchInput from './assets/components/SearchInput'
+import { Title } from './assets/components/Title'
+import bgspace from './assets/Icons/bgspace.svg'
+import './styles/style.css'
+const data = [
+    {
+        derivationCode: "LCCD",
+        derivationDescription: "Calculated from a daily value percentage per serving size measure",
+        nutrientId: 1087,
+        nutrientName: "Calcium, Ca",
+        nutrientNumber: "301",
+        unitName: "MG",
+        value: 8,
+    },
+    {
+        derivationCode: "LCCD",
+        derivationDescription: "Calculated from a daily value percentage per serving size measure",
+        nutrientId: 1087,
+        nutrientName: "Calcium, Ca",
+        nutrientNumber: "301",
+        unitName: "MG",
+        value: 8,
+    },
+    {
+        derivationCode: "LCCD",
+        derivationDescription: "Calculated from a daily value percentage per serving size measure",
+        nutrientId: 1087,
+        nutrientName: "Calcium, Ca",
+        nutrientNumber: "301",
+        unitName: "MG",
+        value: 8,
+    }
+]
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [fooditemToSearch, setSearch] = useState(null)
+    const [selectedFood, setFood] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [searchNotFound, setNotFound] = useState(false)
+    useEffect(() => {
+
+        // get user input
+
+        // fetch data
+        const getData = async () => {
+
+            try {
+                if (fooditemToSearch === null) return
+
+                setLoading(true)
+                setFood(null)
+                setNotFound(false)
+
+                // const req = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?api_keys=${process.env.REACT_APP_Food_API}&query=${fooditemToSearch}`)
+                // const res = await req.json()
+                const req = await fetch(`https://henok-food-web.herokuapp.com/search/`, {
+                    method: "POST",
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({ item: fooditemToSearch })
+                })
+
+                const res = await req.json()
+
+
+                // Set Data
+
+                setFood(res.foods[0])
+
+                setTimeout(() => {
+                    setLoading(false)
+
+                }, 1000);
+                // console.log(fooditemToSearch);
+
+
+            } catch (error) {
+                setNotFound(true)
+            }
+        }
+
+        // clear user input
+
+        getData()
+
+    }, [fooditemToSearch])
+
+    console.log(fooditemToSearch);
+
+    return (
+        <>
+
+
+
+            <SearchInput
+                getUserInput={setSearch}
+            />
+            {fooditemToSearch === null ? "" :
+                <Title
+                    title={fooditemToSearch}
+                />
+
+            }
+            <CardContainer
+                selectedFood={selectedFood}
+                loading={loading}
+            />
+
+        </>
+    )
+
+
 }
 
 export default App;
