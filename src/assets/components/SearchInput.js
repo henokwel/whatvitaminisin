@@ -52,7 +52,7 @@ class SearchInput extends React.Component {
         super();
         this.state = { value: '', suggestions: [] };
         this.handleSubmit = this.handleSubmit.bind(this)
-     }
+    }
 
     onChange = (event, { newValue, method }) => {
         this.setState({

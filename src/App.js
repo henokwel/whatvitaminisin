@@ -4,35 +4,7 @@ import SearchInput from './assets/components/SearchInput'
 import { Title } from './assets/components/Title'
 import bgspace from './assets/Icons/bgspace.svg'
 import './styles/style.css'
-const data = [
-    {
-        derivationCode: "LCCD",
-        derivationDescription: "Calculated from a daily value percentage per serving size measure",
-        nutrientId: 1087,
-        nutrientName: "Calcium, Ca",
-        nutrientNumber: "301",
-        unitName: "MG",
-        value: 8,
-    },
-    {
-        derivationCode: "LCCD",
-        derivationDescription: "Calculated from a daily value percentage per serving size measure",
-        nutrientId: 1087,
-        nutrientName: "Calcium, Ca",
-        nutrientNumber: "301",
-        unitName: "MG",
-        value: 8,
-    },
-    {
-        derivationCode: "LCCD",
-        derivationDescription: "Calculated from a daily value percentage per serving size measure",
-        nutrientId: 1087,
-        nutrientName: "Calcium, Ca",
-        nutrientNumber: "301",
-        unitName: "MG",
-        value: 8,
-    }
-]
+
 
 function App() {
     const [fooditemToSearch, setSearch] = useState(null)
@@ -50,7 +22,7 @@ function App() {
                 setLoading(true)
                 setFood(null)
                 setNotFound(false)
- 
+
                 const req = await fetch(`https://henok-food-web.herokuapp.com/search/`, {
                     method: "POST",
                     mode: 'cors', // no-cors, *cors, same-origin
@@ -73,6 +45,8 @@ function App() {
         // clear user input
         getData()
     }, [fooditemToSearch])
+    console.log(selectedFood);
+
 
     return (
         <>
