@@ -45,8 +45,6 @@ function App() {
         // clear user input
         getData()
     }, [fooditemToSearch])
-    console.log(selectedFood);
-
 
     return (
         <>
