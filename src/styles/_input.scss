@@ -20,8 +20,7 @@ form {
     align-items: baseline;
     justify-content: space-between;
     background-color: $Primary-color;
-    // height: 30%;
-    height: 80px;
+     height: 80px;
     margin-top: 10vh;
     overflow: hidden;
     font-size: 1.7em;
@@ -64,8 +63,7 @@ form {
             border: none;
             z-index: 2;
             background: #dadada;
-            // box-shadow: -3.5px -2px 6px -2px rgba(0, 0, 0, 0.25), 2px 3px 6px rgba(242, 242, 242, 0.25);
-        }
+         }
 
         .react-autosuggest__suggestions-list {
             text-align: center;
@@ -84,15 +82,11 @@ form {
         }
 
         .react-autosuggest__suggestion--highlighted {
-            // text-decoration: underline;
-            // border-bottom: 2px solid currentColor;
             box-shadow: inset 1px 1px 4px rgba(249, 249, 249, 0.5), inset -2px -3px 6px -3px rgba(67, 67, 67, 0.25);
             border-radius: 22px;
             text-align: center;
-            // border-left: none;
-            border: none;
-            // border-right: none;;
-            background-color: $Primary-color;
+             border: none;
+             background-color: $Primary-color;
         }
 
         .react-autosuggest__suggestion-match {
@@ -106,8 +100,7 @@ form {
         padding: 8px;
         margin: 5px;
         cursor: pointer;
-        // z-index: 1;
-        outline: none;
+         outline: none;
 
         background: $Primary-color;
         border: 1px solid #d2d2d2;
