@@ -5,7 +5,6 @@ import { Title } from './assets/components/Title'
 import bgspace from './assets/Icons/bgspace.svg'
 import './styles/style.css'
 
-
 function App() {
     const [fooditemToSearch, setSearch] = useState(null)
     const [selectedFood, setFood] = useState(null)
@@ -15,7 +14,6 @@ function App() {
         // get user input
         // fetch data
         const getData = async () => {
-
             try {
                 if (fooditemToSearch === null) return
 
@@ -25,14 +23,13 @@ function App() {
 
                 const req = await fetch(`https://henok-food-web.herokuapp.com/search/`, {
                     method: "POST",
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    mode: 'cors',
+                    cache: 'no-cache', 
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ item: fooditemToSearch })
                 })
-
                 const res = await req.json()
                 // Set Data
                 setFood(res.foods[0])
@@ -61,7 +58,6 @@ function App() {
             />
         </>
     )
-
 }
 
 export default App;
